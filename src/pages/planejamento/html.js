@@ -56,19 +56,45 @@ export default function Html(props) {
                 <section id="colunas">
                     <section className="coluna">
                         <h1 className="tituloColuna">Atenção!</h1>
-                        {dados.map(dado => (
-                            <ItemContainers
-                                key={dado}
-                                dado={dado}
-                                ItemMenu={ItemMenu}
-                            />
-                        ))}
+                        {dados.map(dado =>
+                            dado.Nom_Atrasado == 'Atenção' ? (
+                                <ItemContainers
+                                    key={dado}
+                                    dado={dado}
+                                    ItemMenu={ItemMenu}
+                                />
+                            ) : (
+                                ''
+                            )
+                        )}
                     </section>
                     <section className="coluna">
                         <h1 className="tituloColuna">Atrasados!</h1>
+                        {dados.map(dado =>
+                            dado.Nom_Atrasado == 'Atrasado' ? (
+                                <ItemContainers
+                                    key={dado}
+                                    dado={dado}
+                                    ItemMenu={ItemMenu}
+                                />
+                            ) : (
+                                ''
+                            )
+                        )}
                     </section>
                     <section className="coluna">
                         <h1 className="tituloColuna">Concluído!</h1>
+                        {dados.map(dado =>
+                            dado.Nom_Atrasado == 'Concluido' ? (
+                                <ItemContainers
+                                    key={dado}
+                                    dado={dado}
+                                    ItemMenu={ItemMenu}
+                                />
+                            ) : (
+                                ''
+                            )
+                        )}
                     </section>
                     <section id="areaTrabalho"></section>
                 </section>

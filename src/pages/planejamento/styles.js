@@ -24,6 +24,13 @@ export const Main = styled.main`
             border: 2px solid transparent;
             cursor: pointer;
             box-shadow: ${boxShadowPadrao};
+
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
     }
 
