@@ -9,14 +9,7 @@ import {
 } from './styles';
 
 export default function Html(props) {
-    const {
-        dados,
-        ItemMenu,
-        alteraValorBotao1,
-        alteraValorBotao2,
-        alteraValorBotao3,
-        alteraValorBotao4,
-    } = props;
+    const { dados, ItemMenu, alteraValorBotao } = props;
 
     return (
         <>
@@ -26,7 +19,7 @@ export default function Html(props) {
                         ItemLevantamentoEnabled={
                             ItemMenu.ItemLevantamentoEnabled
                         }
-                        onClick={alteraValorBotao1}
+                        onClick={() => alteraValorBotao(1)}
                     >
                         Levantamentos
                     </ItemLevantamento>
@@ -34,7 +27,7 @@ export default function Html(props) {
                         ItemRequerimentosEnabled={
                             ItemMenu.ItemRequerimentosEnabled
                         }
-                        onClick={alteraValorBotao2}
+                        onClick={() => alteraValorBotao(2)}
                     >
                         Requerimentos
                     </ItemRequerimentos>
@@ -42,13 +35,13 @@ export default function Html(props) {
                         ItemSolicitacoesEnabled={
                             ItemMenu.ItemSolicitacoesEnabled
                         }
-                        onClick={alteraValorBotao3}
+                        onClick={() => alteraValorBotao(3)}
                     >
                         Solicitações
                     </ItemSolicitacoes>
                     <ItemFix
                         ItemFixEnabled={ItemMenu.ItemFixEnabled}
-                        onClick={alteraValorBotao4}
+                        onClick={() => alteraValorBotao(4)}
                     >
                         Fix
                     </ItemFix>
@@ -57,7 +50,7 @@ export default function Html(props) {
                     <section className="coluna">
                         <h1 className="tituloColuna">Atenção!</h1>
                         {dados.map(dado =>
-                            dado.Nom_Atrasado == 'Atenção' ? (
+                            dado.Nom_Atrasado === 'Atenção' ? (
                                 <ItemContainers
                                     key={dado}
                                     dado={dado}
@@ -71,7 +64,7 @@ export default function Html(props) {
                     <section className="coluna">
                         <h1 className="tituloColuna">Atrasados!</h1>
                         {dados.map(dado =>
-                            dado.Nom_Atrasado == 'Atrasado' ? (
+                            dado.Nom_Atrasado === 'Atrasado' ? (
                                 <ItemContainers
                                     key={dado}
                                     dado={dado}
@@ -85,7 +78,7 @@ export default function Html(props) {
                     <section className="coluna">
                         <h1 className="tituloColuna">Concluído!</h1>
                         {dados.map(dado =>
-                            dado.Nom_Atrasado == 'Concluido' ? (
+                            dado.Nom_Atrasado === 'Concluido' ? (
                                 <ItemContainers
                                     key={dado}
                                     dado={dado}
@@ -96,7 +89,10 @@ export default function Html(props) {
                             )
                         )}
                     </section>
-                    <section id="areaTrabalho"></section>
+                    <section id="areaTrabalho">
+                        <article>Descrição</article>
+                        <article>data de E</article>
+                    </section>
                 </section>
             </Main>
         </>

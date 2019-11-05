@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 
 const roxoClaro = 'rgb(113, 89, 193)';
+const roxoSuperClaro = 'rgb(236, 231, 248)';
+const verdeAgua = 'rgb(3, 212, 167)';
 const boxShadowPadrao = '1px 2px 5px rgba(0, 0, 0, 0.5)';
 
-const bordaBotoesMenu = `color: rgb(3, 212, 167); border: 2px solid rgb(3, 212, 167);`;
+const bordaBotoesMenu = `color: ${verdeAgua}; border: 2px solid ${verdeAgua};`;
 
 export const Main = styled.main`
     max-width: 1400px;
@@ -20,7 +22,7 @@ export const Main = styled.main`
             padding: 10px 0;
             min-width: 120px;
             text-align: center;
-            color: rgb(217, 207, 250);
+            color: ${roxoSuperClaro};
             border: 2px solid transparent;
             cursor: pointer;
             box-shadow: ${boxShadowPadrao};
@@ -39,19 +41,70 @@ export const Main = styled.main`
         display: flex;
 
         .coluna {
-            width: 180px;
             min-height: 600px;
             margin-right: 40px;
 
+            &:first-child {
+                width: 180px;
+            }
+
             & + .coluna {
+                width: 220px;
                 padding-left: 40px;
                 border-left: 1px solid ${roxoClaro};
+            }
+
+            .miniContainer {
+                cursor: pointer;
+
+                &:hover {
+                    border: 1px solid ${verdeAgua};
+                }
+
+                p {
+                    margin-top: 7px;
+                }
+
+                #iconesMiniContainer {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-top: 7px;
+
+                    .iconeMiniContainer {
+                        display: flex;
+                        align-items: center;
+                    }
+                    svg {
+                    }
+
+                    a:link,
+                    a:visited,
+                    a:active {
+                        text-decoration: none;
+                        color: black;
+                    }
+                    a:hover {
+                        text-decoration: underline;
+                        color: ${roxoClaro};
+                    }
+
+                    a {
+                        align-items: center;
+                    }
+                }
             }
         }
 
         .tituloColuna {
             text-align: center;
             color: ${roxoClaro};
+        }
+
+        #areaTrabalho {
+            width: 500px;
+            border: 1px solid ${roxoClaro};
+            background-color: ${roxoSuperClaro};
         }
     }
 `;

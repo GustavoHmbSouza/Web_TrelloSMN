@@ -24,55 +24,105 @@ export default class planejamento extends Component {
         });
     }
 
-    alteraValorBotao1() {
+    alteraValorBotao = param => {
         const { ItemMenu } = this.state;
 
-        this.setState({
-            ItemMenu: {
-                ...ItemMenu,
-                ItemLevantamentoEnabled: ItemMenu.ItemLevantamentoEnabled
-                    ? false
-                    : true,
-            },
-        });
-    }
+        if (param === 1) {
+            if (
+                ItemMenu.ItemLevantamentoEnabled &&
+                ItemMenu.ItemRequerimentosEnabled &&
+                ItemMenu.ItemSolicitacoesEnabled &&
+                ItemMenu.ItemFixEnabled
+            ) {
+                this.setState({
+                    ItemMenu: {
+                        ItemLevantamentoEnabled: true,
+                        ItemRequerimentosEnabled: false,
+                        ItemSolicitacoesEnabled: false,
+                        ItemFixEnabled: false,
+                    },
+                });
+            } else {
+                this.setState({
+                    ItemMenu: {
+                        ...ItemMenu,
+                        ItemLevantamentoEnabled: !ItemMenu.ItemLevantamentoEnabled,
+                    },
+                });
+            }
+        } else if (param === 2) {
+            if (
+                ItemMenu.ItemLevantamentoEnabled &&
+                ItemMenu.ItemRequerimentosEnabled &&
+                ItemMenu.ItemSolicitacoesEnabled &&
+                ItemMenu.ItemFixEnabled
+            ) {
+                this.setState({
+                    ItemMenu: {
+                        ItemLevantamentoEnabled: false,
+                        ItemRequerimentosEnabled: true,
+                        ItemSolicitacoesEnabled: false,
+                        ItemFixEnabled: false,
+                    },
+                });
+            } else {
+                this.setState({
+                    ItemMenu: {
+                        ...ItemMenu,
+                        ItemRequerimentosEnabled: !ItemMenu.ItemRequerimentosEnabled,
+                    },
+                });
+            }
+        } else if (param === 3) {
+            if (
+                ItemMenu.ItemLevantamentoEnabled &&
+                ItemMenu.ItemRequerimentosEnabled &&
+                ItemMenu.ItemSolicitacoesEnabled &&
+                ItemMenu.ItemFixEnabled
+            ) {
+                this.setState({
+                    ItemMenu: {
+                        ItemLevantamentoEnabled: false,
+                        ItemRequerimentosEnabled: false,
+                        ItemSolicitacoesEnabled: true,
+                        ItemFixEnabled: false,
+                    },
+                });
+            } else {
+                this.setState({
+                    ItemMenu: {
+                        ...ItemMenu,
+                        ItemSolicitacoesEnabled: !ItemMenu.ItemSolicitacoesEnabled,
+                    },
+                });
+            }
+        } else if (param === 4) {
+            if (
+                ItemMenu.ItemLevantamentoEnabled &&
+                ItemMenu.ItemRequerimentosEnabled &&
+                ItemMenu.ItemSolicitacoesEnabled &&
+                ItemMenu.ItemFixEnabled
+            ) {
+                this.setState({
+                    ItemMenu: {
+                        ItemLevantamentoEnabled: false,
+                        ItemRequerimentosEnabled: false,
+                        ItemSolicitacoesEnabled: false,
+                        ItemFixEnabled: true,
+                    },
+                });
+            } else {
+                this.setState({
+                    ItemMenu: {
+                        ...ItemMenu,
+                        ItemFixEnabled: !ItemMenu.ItemFixEnabled,
+                    },
+                });
+            }
+        }
+    };
 
-    alteraValorBotao2() {
-        const { ItemMenu } = this.state;
-
-        this.setState({
-            ItemMenu: {
-                ...ItemMenu,
-                ItemRequerimentosEnabled: ItemMenu.ItemRequerimentosEnabled
-                    ? false
-                    : true,
-            },
-        });
-    }
-
-    alteraValorBotao3() {
-        const { ItemMenu } = this.state;
-
-        this.setState({
-            ItemMenu: {
-                ...ItemMenu,
-                ItemSolicitacoesEnabled: ItemMenu.ItemSolicitacoesEnabled
-                    ? false
-                    : true,
-            },
-        });
-    }
-
-    alteraValorBotao4() {
-        const { ItemMenu } = this.state;
-
-        this.setState({
-            ItemMenu: {
-                ...ItemMenu,
-                ItemFixEnabled: ItemMenu.ItemFixEnabled ? false : true,
-            },
-        });
-    }
+    selecionaQuadro = param => {};
 
     render() {
         const { loading } = this.state;
@@ -84,10 +134,7 @@ export default class planejamento extends Component {
                 <Html
                     dados={dados}
                     ItemMenu={ItemMenu}
-                    alteraValorBotao1={() => this.alteraValorBotao1()}
-                    alteraValorBotao2={() => this.alteraValorBotao2()}
-                    alteraValorBotao3={() => this.alteraValorBotao3()}
-                    alteraValorBotao4={() => this.alteraValorBotao4()}
+                    alteraValorBotao={this.alteraValorBotao}
                 />
             );
         }
