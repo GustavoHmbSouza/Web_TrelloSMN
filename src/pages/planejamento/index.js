@@ -10,9 +10,10 @@ export default class planejamento extends Component {
         ItemMenu: {
             ItemLevantamentoEnabled: true,
             ItemRequerimentosEnabled: true,
-            ItemSolicitacoesEnabled: false,
+            ItemSolicitacoesEnabled: true,
             ItemFixEnabled: true,
         },
+        idCardSelecionado: '',
     };
 
     async componentDidMount() {
@@ -122,18 +123,24 @@ export default class planejamento extends Component {
         }
     };
 
-    selecionaQuadro = param => {};
+    selecionaQuadro = param => {
+        this.setState({
+            idCardSelecionado: param,
+        });
+    };
 
     render() {
         const { loading } = this.state;
 
         if (loading) {
-            const { dados, ItemMenu } = this.state;
+            const { dados, ItemMenu, idCardSelecionado } = this.state;
 
             return (
                 <Html
                     dados={dados}
                     ItemMenu={ItemMenu}
+                    idCardSelecionado={idCardSelecionado}
+                    selecionaQuadro={this.selecionaQuadro}
                     alteraValorBotao={this.alteraValorBotao}
                 />
             );

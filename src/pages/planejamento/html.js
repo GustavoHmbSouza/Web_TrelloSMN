@@ -1,4 +1,6 @@
 import React from 'react';
+import { FiClock } from 'react-icons/fi';
+import { IoIosMenu } from 'react-icons/io';
 import ItemContainers from './itemContainers';
 import {
     Main,
@@ -9,7 +11,13 @@ import {
 } from './styles';
 
 export default function Html(props) {
-    const { dados, ItemMenu, alteraValorBotao } = props;
+    const {
+        dados,
+        ItemMenu,
+        idCardSelecionado,
+        alteraValorBotao,
+        selecionaQuadro,
+    } = props;
 
     return (
         <>
@@ -55,6 +63,8 @@ export default function Html(props) {
                                     key={dado}
                                     dado={dado}
                                     ItemMenu={ItemMenu}
+                                    selecionaQuadro={selecionaQuadro}
+                                    idCardSelecionado={idCardSelecionado}
                                 />
                             ) : (
                                 ''
@@ -69,6 +79,8 @@ export default function Html(props) {
                                     key={dado}
                                     dado={dado}
                                     ItemMenu={ItemMenu}
+                                    selecionaQuadro={selecionaQuadro}
+                                    idCardSelecionado={idCardSelecionado}
                                 />
                             ) : (
                                 ''
@@ -83,6 +95,8 @@ export default function Html(props) {
                                     key={dado}
                                     dado={dado}
                                     ItemMenu={ItemMenu}
+                                    selecionaQuadro={selecionaQuadro}
+                                    idCardSelecionado={idCardSelecionado}
                                 />
                             ) : (
                                 ''
@@ -90,8 +104,30 @@ export default function Html(props) {
                         )}
                     </section>
                     <section id="areaTrabalho">
-                        <article>Descrição</article>
-                        <article>data de E</article>
+                        <article id="descrAreaTrabalho">
+                            <IoIosMenu />
+                            <p>
+                                {idCardSelecionado !== ''
+                                    ? dados.map(dado =>
+                                          dado.Id === idCardSelecionado
+                                              ? dado.Nom_Descricao
+                                              : ''
+                                      )
+                                    : ''}
+                            </p>
+                        </article>
+                        <article id="dataAreaTrabalho">
+                            <FiClock />
+                            <p>
+                                {idCardSelecionado !== ''
+                                    ? dados.map(dado =>
+                                          dado.Id === idCardSelecionado
+                                              ? dado.Nom_DataFormatada
+                                              : ''
+                                      )
+                                    : ''}
+                            </p>
+                        </article>
                     </section>
                 </section>
             </Main>

@@ -75,8 +75,6 @@ export const Main = styled.main`
                         display: flex;
                         align-items: center;
                     }
-                    svg {
-                    }
 
                     a:link,
                     a:visited,
@@ -105,7 +103,51 @@ export const Main = styled.main`
             width: 500px;
             border: 1px solid ${roxoClaro};
             background-color: ${roxoSuperClaro};
+            border-radius: 5px;
+
+            #descrAreaTrabalho {
+                margin: 25px 0px 25px 50px;
+
+                svg {
+                    color: ${roxoClaro};
+                    font-size: 35px;
+                }
+
+                p {
+                    border: 1px solid ${roxoClaro};
+                    width: 400px;
+                    height: 250px;
+                    background: white;
+                    border-radius: 5px;
+                    padding: 5px;
+                }
+            }
+
+            #dataAreaTrabalho {
+                display: flex;
+                align-items: center;
+                margin: 25px 0px 25px 50px;
+
+                svg {
+                    color: ${roxoClaro};
+                    font-size: 25px;
+                }
+
+                p {
+                    border: 1px solid ${roxoClaro};
+                    width: 150px;
+                    height: 25px;
+                    background: white;
+                    border-radius: 20px;
+                    padding: 5px;
+                    margin-left: 5px;
+                }
+            }
         }
+    }
+
+    #cardSelecionado {
+        border: 1px solid ${verdeAgua};
     }
 `;
 

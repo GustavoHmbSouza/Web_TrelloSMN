@@ -5,13 +5,17 @@ import { IoMdCheckboxOutline } from 'react-icons/io';
 import MiniContainer from '../../components/MiniContainer/index';
 
 export default function itemContainers(props) {
-    const { dado, ItemMenu } = props;
+    const { dado, ItemMenu, selecionaQuadro, idCardSelecionado } = props;
 
     return (
         <>
             {dado.Nom_Sigla.indexOf('SOL') !== -1 &&
             ItemMenu.ItemSolicitacoesEnabled ? (
-                <MiniContainer className="miniContainer">
+                <MiniContainer
+                    className="miniContainer"
+                    onClick={() => selecionaQuadro(dado.Id)}
+                    id={dado.Id === idCardSelecionado ? 'cardSelecionado' : ''}
+                >
                     <h1>{dado.Nom_Sigla}</h1>
                     <p>{dado.Nom_Name}</p>
                     <div id="iconesMiniContainer">
@@ -40,7 +44,11 @@ export default function itemContainers(props) {
             )}
 
             {dado.Nom_Sigla.indexOf('FIX') !== -1 && ItemMenu.ItemFixEnabled ? (
-                <MiniContainer className="miniContainer">
+                <MiniContainer
+                    className="miniContainer"
+                    onClick={() => selecionaQuadro(dado.Id)}
+                    id={dado.Id === idCardSelecionado ? 'cardSelecionado' : ''}
+                >
                     <h1>{dado.Nom_Sigla}</h1>
                     <p>{dado.Nom_Name}</p>
                     <div id="iconesMiniContainer">
@@ -71,7 +79,11 @@ export default function itemContainers(props) {
             {dado.Nom_Sigla.indexOf('FIX') === -1 &&
             dado.Nom_Sigla.indexOf('SOL') === -1 &&
             ItemMenu.ItemRequerimentosEnabled ? (
-                <MiniContainer className="miniContainer">
+                <MiniContainer
+                    className="miniContainer"
+                    onClick={() => selecionaQuadro(dado.Id)}
+                    id={dado.Id === idCardSelecionado ? 'cardSelecionado' : ''}
+                >
                     <h1>{dado.Nom_Sigla}</h1>
                     <p>{dado.Nom_Name}</p>
                     <div id="iconesMiniContainer">
