@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
+const roxoClaro = 'rgb(113, 89, 193)';
+
 export default createGlobalStyle`
     *{
         margin: 0;
@@ -27,5 +29,15 @@ export default createGlobalStyle`
     button
     {
         cursor: pointer;
+    }
+
+    #root{
+        #cabecalho{
+            font-size: 25px;
+            color: ${roxoClaro};
+            border-bottom: 1px solid ${roxoClaro};
+            padding-bottom: 8px;
+            margin-bottom: 30px;
+        }
     }
 `;

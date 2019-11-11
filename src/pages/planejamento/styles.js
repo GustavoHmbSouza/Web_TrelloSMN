@@ -5,7 +5,7 @@ const roxoSuperClaro = 'rgb(236, 231, 248)';
 const verdeAgua = 'rgb(3, 212, 167)';
 const boxShadowPadrao = '1px 2px 5px rgba(0, 0, 0, 0.5)';
 
-const bordaBotoesMenu = `color: ${verdeAgua}; border: 2px solid ${verdeAgua};`;
+const bordaBotoesMenu = `color: ${verdeAgua}; border: 2px solid ${verdeAgua}; box-shadow: none;`;
 
 export const Main = styled.main`
     max-width: 1400px;
@@ -147,9 +147,15 @@ export const Main = styled.main`
             #membros {
                 margin: 25px 0px 25px 50px;
 
+                svg {
+                    color: ${roxoClaro};
+                    font-size: 25px;
+                    margin: 15px 5px 0 0;
+                }
+
                 img {
-                    height: 50px;
-                    width: 50px;
+                    height: 35px;
+                    width: 40px;
                     border-radius: 50%;
                     margin-right: 5px;
                 }
@@ -159,6 +165,7 @@ export const Main = styled.main`
 
     #cardSelecionado {
         border: 1px solid ${verdeAgua};
+        box-shadow: none;
     }
 `;
 

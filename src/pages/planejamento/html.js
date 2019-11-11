@@ -1,7 +1,7 @@
 import React from 'react';
-import { FiClock } from 'react-icons/fi';
-import { IoIosMenu } from 'react-icons/io';
 import ItemContainers from './itemContainers';
+import AreaTrabalho from './areaTrabalho';
+
 import {
     Main,
     ItemLevantamento,
@@ -9,7 +9,6 @@ import {
     ItemSolicitacoes,
     ItemFix,
 } from './styles';
-import interrogacao from '../../imgs/interroga.jpg';
 
 export default function Html(props) {
     const {
@@ -23,6 +22,7 @@ export default function Html(props) {
     return (
         <>
             <Main>
+                <header id="cabecalho">Planejamento</header>
                 <ul>
                     <ItemLevantamento
                         ItemLevantamentoEnabled={
@@ -58,81 +58,178 @@ export default function Html(props) {
                 <section id="colunas">
                     <section className="coluna">
                         <h1 className="tituloColuna">Atenção!</h1>
-                        {dados.map(dado =>
-                            dado.Nom_Atrasado === 'Atenção' ? (
+                        <>
+                            {dados.atencao.sol.length != 0 &&
+                            ItemMenu.ItemSolicitacoesEnabled ? (
                                 <ItemContainers
-                                    key={dado}
-                                    dado={dado}
+                                    dados={dados.atencao.sol}
                                     ItemMenu={ItemMenu}
                                     selecionaQuadro={selecionaQuadro}
                                     idCardSelecionado={idCardSelecionado}
                                 />
                             ) : (
                                 ''
-                            )
-                        )}
+                            )}
+                            {dados.atencao.fix.length != 0 &&
+                            ItemMenu.ItemFixEnabled ? (
+                                <ItemContainers
+                                    dados={dados.atencao.fix}
+                                    ItemMenu={ItemMenu}
+                                    selecionaQuadro={selecionaQuadro}
+                                    idCardSelecionado={idCardSelecionado}
+                                />
+                            ) : (
+                                ''
+                            )}
+                            {dados.atencao.requerimento.length != 0 &&
+                            ItemMenu.ItemRequerimentosEnabled ? (
+                                <ItemContainers
+                                    dados={dados.atencao.requerimento}
+                                    ItemMenu={ItemMenu}
+                                    selecionaQuadro={selecionaQuadro}
+                                    idCardSelecionado={idCardSelecionado}
+                                />
+                            ) : (
+                                ''
+                            )}
+                        </>
                     </section>
                     <section className="coluna">
-                        <h1 className="tituloColuna">Atrasados!</h1>
-                        {dados.map(dado =>
-                            dado.Nom_Atrasado === 'Atrasado' ? (
+                        <h1 className="tituloColuna">Atrasado!</h1>
+                        <>
+                            {dados.atrasado.sol.length != 0 &&
+                            ItemMenu.ItemSolicitacoesEnabled ? (
                                 <ItemContainers
-                                    key={dado}
-                                    dado={dado}
+                                    dados={dados.atrasado.sol}
                                     ItemMenu={ItemMenu}
                                     selecionaQuadro={selecionaQuadro}
                                     idCardSelecionado={idCardSelecionado}
                                 />
                             ) : (
                                 ''
-                            )
-                        )}
+                            )}
+                            {dados.atrasado.fix.length != 0 &&
+                            ItemMenu.ItemFixEnabled ? (
+                                <ItemContainers
+                                    dados={dados.atrasado.fix}
+                                    ItemMenu={ItemMenu}
+                                    selecionaQuadro={selecionaQuadro}
+                                    idCardSelecionado={idCardSelecionado}
+                                />
+                            ) : (
+                                ''
+                            )}
+                            {dados.atrasado.requerimento.length != 0 &&
+                            ItemMenu.ItemRequerimentosEnabled ? (
+                                <ItemContainers
+                                    dados={dados.atrasado.requerimento}
+                                    ItemMenu={ItemMenu}
+                                    selecionaQuadro={selecionaQuadro}
+                                    idCardSelecionado={idCardSelecionado}
+                                />
+                            ) : (
+                                ''
+                            )}
+                        </>
                     </section>
                     <section className="coluna">
                         <h1 className="tituloColuna">Concluído!</h1>
-                        {dados.map(dado =>
-                            dado.Nom_Atrasado === 'Concluido' ? (
+                        <>
+                            {dados.concluido.sol.length != 0 &&
+                            ItemMenu.ItemSolicitacoesEnabled ? (
                                 <ItemContainers
-                                    key={dado}
-                                    dado={dado}
+                                    dados={dados.concluido.sol}
                                     ItemMenu={ItemMenu}
                                     selecionaQuadro={selecionaQuadro}
                                     idCardSelecionado={idCardSelecionado}
                                 />
                             ) : (
                                 ''
-                            )
-                        )}
+                            )}
+                            {dados.concluido.fix.length != 0 &&
+                            ItemMenu.ItemFixEnabled ? (
+                                <ItemContainers
+                                    dados={dados.concluido.fix}
+                                    ItemMenu={ItemMenu}
+                                    selecionaQuadro={selecionaQuadro}
+                                    idCardSelecionado={idCardSelecionado}
+                                />
+                            ) : (
+                                ''
+                            )}
+                            {dados.concluido.requerimento.length != 0 &&
+                            ItemMenu.ItemRequerimentosEnabled ? (
+                                <ItemContainers
+                                    dados={dados.concluido.requerimento}
+                                    ItemMenu={ItemMenu}
+                                    selecionaQuadro={selecionaQuadro}
+                                    idCardSelecionado={idCardSelecionado}
+                                />
+                            ) : (
+                                ''
+                            )}
+                        </>
                     </section>
-                    {dados.map(dado =>
+
+                    {dados.atencao.sol.map(dado =>
                         dado.Id === idCardSelecionado ? (
-                            <>
-                                <section id="areaTrabalho">
-                                    <article id="descrAreaTrabalho">
-                                        <IoIosMenu />
-                                        <p>{dado.Nom_Descricao}</p>
-                                    </article>
-                                    <article id="dataAreaTrabalho">
-                                        <FiClock />
-                                        <p>{dado.Nom_DataFormatada}</p>
-                                    </article>
-                                    <article id="membros">
-                                        {dado.membros.map(membro =>
-                                            membro.avatarHash ? (
-                                                <img
-                                                    src={`https://trello-avatars.s3.amazonaws.com/${membro.avatarHash}/170.png`}
-                                                    alt=""
-                                                />
-                                            ) : (
-                                                <img
-                                                    src={interrogacao}
-                                                    alt=""
-                                                />
-                                            )
-                                        )}
-                                    </article>
-                                </section>
-                            </>
+                            <AreaTrabalho dado={dado} />
+                        ) : (
+                            ''
+                        )
+                    )}
+                    {dados.atencao.fix.map(dado =>
+                        dado.Id === idCardSelecionado ? (
+                            <AreaTrabalho dado={dado} />
+                        ) : (
+                            ''
+                        )
+                    )}
+                    {dados.atencao.requerimento.map(dado =>
+                        dado.Id === idCardSelecionado ? (
+                            <AreaTrabalho dado={dado} />
+                        ) : (
+                            ''
+                        )
+                    )}
+                    {dados.atrasado.sol.map(dado =>
+                        dado.Id === idCardSelecionado ? (
+                            <AreaTrabalho dado={dado} />
+                        ) : (
+                            ''
+                        )
+                    )}
+                    {dados.atrasado.fix.map(dado =>
+                        dado.Id === idCardSelecionado ? (
+                            <AreaTrabalho dado={dado} />
+                        ) : (
+                            ''
+                        )
+                    )}
+                    {dados.atrasado.requerimento.map(dado =>
+                        dado.Id === idCardSelecionado ? (
+                            <AreaTrabalho dado={dado} />
+                        ) : (
+                            ''
+                        )
+                    )}
+                    {dados.concluido.sol.map(dado =>
+                        dado.Id === idCardSelecionado ? (
+                            <AreaTrabalho dado={dado} />
+                        ) : (
+                            ''
+                        )
+                    )}
+                    {dados.concluido.fix.map(dado =>
+                        dado.Id === idCardSelecionado ? (
+                            <AreaTrabalho dado={dado} />
+                        ) : (
+                            ''
+                        )
+                    )}
+                    {dados.concluido.requerimento.map(dado =>
+                        dado.Id === idCardSelecionado ? (
+                            <AreaTrabalho dado={dado} />
                         ) : (
                             ''
                         )
