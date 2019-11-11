@@ -143,6 +143,17 @@ export const Main = styled.main`
                     margin-left: 5px;
                 }
             }
+
+            #membros {
+                margin: 25px 0px 25px 50px;
+
+                img {
+                    height: 50px;
+                    width: 50px;
+                    border-radius: 50%;
+                    margin-right: 5px;
+                }
+            }
         }
     }
 

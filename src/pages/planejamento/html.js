@@ -9,6 +9,7 @@ import {
     ItemSolicitacoes,
     ItemFix,
 } from './styles';
+import interrogacao from '../../imgs/interroga.jpg';
 
 export default function Html(props) {
     const {
@@ -103,32 +104,39 @@ export default function Html(props) {
                             )
                         )}
                     </section>
-                    <section id="areaTrabalho">
-                        <article id="descrAreaTrabalho">
-                            <IoIosMenu />
-                            <p>
-                                {idCardSelecionado !== ''
-                                    ? dados.map(dado =>
-                                          dado.Id === idCardSelecionado
-                                              ? dado.Nom_Descricao
-                                              : ''
-                                      )
-                                    : ''}
-                            </p>
-                        </article>
-                        <article id="dataAreaTrabalho">
-                            <FiClock />
-                            <p>
-                                {idCardSelecionado !== ''
-                                    ? dados.map(dado =>
-                                          dado.Id === idCardSelecionado
-                                              ? dado.Nom_DataFormatada
-                                              : ''
-                                      )
-                                    : ''}
-                            </p>
-                        </article>
-                    </section>
+                    {dados.map(dado =>
+                        dado.Id === idCardSelecionado ? (
+                            <>
+                                <section id="areaTrabalho">
+                                    <article id="descrAreaTrabalho">
+                                        <IoIosMenu />
+                                        <p>{dado.Nom_Descricao}</p>
+                                    </article>
+                                    <article id="dataAreaTrabalho">
+                                        <FiClock />
+                                        <p>{dado.Nom_DataFormatada}</p>
+                                    </article>
+                                    <article id="membros">
+                                        {dado.membros.map(membro =>
+                                            membro.avatarHash ? (
+                                                <img
+                                                    src={`https://trello-avatars.s3.amazonaws.com/${membro.avatarHash}/170.png`}
+                                                    alt=""
+                                                />
+                                            ) : (
+                                                <img
+                                                    src={interrogacao}
+                                                    alt=""
+                                                />
+                                            )
+                                        )}
+                                    </article>
+                                </section>
+                            </>
+                        ) : (
+                            ''
+                        )
+                    )}
                 </section>
             </Main>
         </>
