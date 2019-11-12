@@ -9,7 +9,8 @@ const bordaBotoesMenu = `color: ${verdeAgua}; border: 2px solid ${verdeAgua}; bo
 
 export const Main = styled.main`
     max-width: 1400px;
-    margin: 50px auto;
+    margin: 50px 50px;
+
     ul {
         display: flex;
         justify-content: space-between;
@@ -36,67 +37,73 @@ export const Main = styled.main`
         }
     }
 
-    #colunas {
-        margin-top: 30px;
-        display: flex;
+    #conteudo
+    {
+        display: grid;
+        grid-template-columns: minmax(600px, 3fr) minmax(500px, 1fr);
 
-        .coluna {
-            min-height: 600px;
-            margin-right: 40px;
+        #colunas {
+            margin-top: 30px;
+            display: flex;
+            
+            .coluna {
+                min-height: 600px;
+                margin-right: 40px;
 
-            &:first-child {
-                width: 180px;
-            }
-
-            & + .coluna {
-                width: 220px;
-                padding-left: 40px;
-                border-left: 1px solid ${roxoClaro};
-            }
-
-            .miniContainer {
-                cursor: pointer;
-
-                &:hover {
-                    border: 1px solid ${verdeAgua};
+                &:first-child {
+                    width: 180px;
                 }
 
-                p {
-                    margin-top: 7px;
+                & + .coluna {
+                    width: 220px;
+                    padding-left: 40px;
+                    border-left: 1px solid ${roxoClaro};
                 }
 
-                #iconesMiniContainer {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    margin-top: 7px;
+                .miniContainer {
+                    cursor: pointer;
 
-                    .iconeMiniContainer {
+                    &:hover {
+                        border: 1px solid ${verdeAgua};
+                    }
+
+                    p {
+                        margin-top: 7px;
+                    }
+
+                    #iconesMiniContainer {
                         display: flex;
                         align-items: center;
-                    }
+                        justify-content: space-between;
+                        margin-top: 7px;
 
-                    a:link,
-                    a:visited,
-                    a:active {
-                        text-decoration: none;
-                        color: black;
-                    }
-                    a:hover {
-                        text-decoration: underline;
-                        color: ${roxoClaro};
-                    }
+                        .iconeMiniContainer {
+                            display: flex;
+                            align-items: center;
+                        }
 
-                    a {
-                        align-items: center;
+                        a:link,
+                        a:visited,
+                        a:active {
+                            text-decoration: none;
+                            color: black;
+                        }
+                        a:hover {
+                            text-decoration: underline;
+                            color: ${roxoClaro};
+                        }
+
+                        a {
+                            align-items: center;
+                        }
                     }
                 }
             }
-        }
 
-        .tituloColuna {
-            text-align: center;
-            color: ${roxoClaro};
+            .tituloColuna {
+                text-align: center;
+                color: ${roxoClaro};
+            }
         }
 
         #areaTrabalho {
@@ -104,7 +111,8 @@ export const Main = styled.main`
             border: 1px solid ${roxoClaro};
             background-color: ${roxoSuperClaro};
             border-radius: 5px;
-
+            max-height: 600px;
+            
             #descrAreaTrabalho {
                 margin: 25px 0px 25px 50px;
 
@@ -160,7 +168,7 @@ export const Main = styled.main`
                     margin-right: 5px;
                 }
             }
-        }
+        }   
     }
 
     #cardSelecionado {

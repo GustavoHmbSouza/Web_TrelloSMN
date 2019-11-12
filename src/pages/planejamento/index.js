@@ -28,6 +28,37 @@ export default class planejamento extends Component {
     alteraValorBotao = param => {
         const { ItemMenu } = this.state;
 
+        if ((ItemMenu.ItemLevantamentoEnabled &&
+            !ItemMenu.ItemRequerimentosEnabled &&
+            !ItemMenu.ItemSolicitacoesEnabled &&
+            !ItemMenu.ItemFixEnabled && param == 1) ||
+
+            (!ItemMenu.ItemLevantamentoEnabled &&
+                ItemMenu.ItemRequerimentosEnabled &&
+                !ItemMenu.ItemSolicitacoesEnabled &&
+                !ItemMenu.ItemFixEnabled && param == 1) ||
+
+            (!ItemMenu.ItemLevantamentoEnabled &&
+                !ItemMenu.ItemRequerimentosEnabled &&
+                ItemMenu.ItemSolicitacoesEnabled &&
+                !ItemMenu.ItemFixEnabled && param == 3) ||
+
+            (!ItemMenu.ItemLevantamentoEnabled &&
+                !ItemMenu.ItemRequerimentosEnabled &&
+                !ItemMenu.ItemSolicitacoesEnabled &&
+                ItemMenu.ItemFixEnabled && param == 4)
+        ) {
+            this.setState({
+                ItemMenu: {
+                    ItemLevantamentoEnabled: true,
+                    ItemRequerimentosEnabled: true,
+                    ItemSolicitacoesEnabled: true,
+                    ItemFixEnabled: true,
+                },
+            });
+            return;
+        }
+
         if (param === 1) {
             if (
                 ItemMenu.ItemLevantamentoEnabled &&

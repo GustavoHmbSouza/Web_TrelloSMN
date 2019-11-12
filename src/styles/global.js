@@ -32,6 +32,9 @@ export default createGlobalStyle`
     }
 
     #root{
+        display: grid;
+        grid-template-columns: 60px minmax(100px, 1400px);
+
         #cabecalho{
             font-size: 25px;
             color: ${roxoClaro};
