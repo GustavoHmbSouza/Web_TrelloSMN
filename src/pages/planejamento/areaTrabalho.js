@@ -1,7 +1,8 @@
 import React from 'react';
-import { FiClock } from 'react-icons/fi';
+import { FiClock, FiArrowRightCircle } from 'react-icons/fi';
 import { IoIosMenu } from 'react-icons/io';
 import { MdGroup } from 'react-icons/md';
+import { FaCalendarAlt, FaHourglassStart } from 'react-icons/fa';
 import interrogacao from '../../imgs/interroga.jpg';
 
 export default function areaTrabalho(props) {
@@ -13,10 +14,6 @@ export default function areaTrabalho(props) {
                 <IoIosMenu />
                 <p>{dado.Nom_Descricao}</p>
             </article>
-            <article id="dataAreaTrabalho">
-                <FiClock />
-                <p>{dado.Nom_DataFormatada}</p>
-            </article>
             <article id="membros">
                 <MdGroup />
                 {dado.membros.map(membro =>
@@ -26,9 +23,26 @@ export default function areaTrabalho(props) {
                             alt=""
                         />
                     ) : (
-                        <img src={interrogacao} alt="" />
-                    )
+                            <img src={interrogacao} alt="" />
+                        )
                 )}
+            </article>
+            <article>
+                <FiClock />
+                {dado.Nom_DataEntregaFormatada ? <p>{dado.Nom_DataEntregaFormatada}</p> : ''}
+            </article>
+            <article id="dataInicioFim">
+                <FaCalendarAlt />
+                {dado.comentarios.Dat_DataInicio ? <p>{dado.comentarios.Dat_DataInicio}</p> : ''}
+                {dado.comentarios.Dat_DataFim ? <p>{dado.comentarios.Dat_DataFim}</p> : ''}
+            </article>
+            <article id="horasFuncionalidade">
+                <FaHourglassStart />
+                {dado.comentarios.Num_Horas ? <p>{dado.comentarios.Num_Horas}</p> : ''}
+            </article>
+            <article >
+                <FiArrowRightCircle />
+                {dado.comentarios.Nom_Fase ? <p>{dado.comentarios.Nom_Fase}</p> : ''}
             </article>
         </section>
     );

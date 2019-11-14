@@ -113,53 +113,65 @@ export const Main = styled.main`
             border-radius: 5px;
             max-height: 600px;
             
-            #descrAreaTrabalho {
+            article
+            {
                 margin: 25px 0px 25px 50px;
+                min-height: 28px;
 
-                svg {
+                & + article
+                {
+                    display: flex;
+                    align-items: center;
+                } 
+                
+                svg{
                     color: ${roxoClaro};
-                    font-size: 35px;
+                    font-size: 25px;
+                    margin-right: 5px;
                 }
 
                 p {
                     border: 1px solid ${roxoClaro};
-                    width: 400px;
-                    height: 250px;
+                   
                     background: white;
-                    border-radius: 5px;
+                    border-radius: 20px;
                     padding: 5px;
                 }
             }
 
-            #dataAreaTrabalho {
-                display: flex;
-                align-items: center;
-                margin: 25px 0px 25px 50px;
+            #dataInicioFim
+            {
+                p
+                {
+                    & + p{
+                        margin-left: 5px;
+                    }
+                }
+            }
+            
+            #descrAreaTrabalho {
 
                 svg {
                     color: ${roxoClaro};
                     font-size: 25px;
                 }
 
-                p {
-                    border: 1px solid ${roxoClaro};
-                    width: 150px;
-                    height: 25px;
-                    background: white;
-                    border-radius: 20px;
-                    padding: 5px;
-                    margin-left: 5px;
+                p{
+                    width: 400px;
+                    height: 250px;
+                    border-radius: 5px;
+                }
+            }
+
+
+            #horasFuncionalidade{
+
+                p{
                 }
             }
 
             #membros {
-                margin: 25px 0px 25px 50px;
-
-                svg {
-                    color: ${roxoClaro};
-                    font-size: 25px;
-                    margin: 15px 5px 0 0;
-                }
+                height: 35px;
 
                 img {
                     height: 35px;
