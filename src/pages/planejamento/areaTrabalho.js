@@ -23,26 +23,46 @@ export default function areaTrabalho(props) {
                             alt=""
                         />
                     ) : (
-                            <img src={interrogacao} alt="" />
-                        )
+                        <img src={interrogacao} alt="" />
+                    )
                 )}
             </article>
             <article>
                 <FiClock />
-                {dado.Nom_DataEntregaFormatada ? <p>{dado.Nom_DataEntregaFormatada}</p> : ''}
+                {dado.Nom_DataEntregaFormatada ? (
+                    <p>{dado.Nom_DataEntregaFormatada}</p>
+                ) : (
+                    ''
+                )}
             </article>
             <article id="dataInicioFim">
                 <FaCalendarAlt />
-                {dado.comentarios.Dat_DataInicio ? <p>{dado.comentarios.Dat_DataInicio}</p> : ''}
-                {dado.comentarios.Dat_DataFim ? <p>{dado.comentarios.Dat_DataFim}</p> : ''}
+                {dado.comentarios.Dat_DataInicio ? (
+                    <p>{dado.comentarios.Dat_DataInicio}</p>
+                ) : (
+                    ''
+                )}
+                {dado.comentarios.Dat_DataFim ? (
+                    <p>{dado.comentarios.Dat_DataFim}</p>
+                ) : (
+                    ''
+                )}
             </article>
             <article id="horasFuncionalidade">
                 <FaHourglassStart />
-                {dado.comentarios.Num_Horas ? <p>{dado.comentarios.Num_Horas}</p> : ''}
+                {dado.comentarios.Num_Horas ? (
+                    <p>{dado.comentarios.Num_Horas}</p>
+                ) : (
+                    ''
+                )}
             </article>
-            <article >
+            <article>
                 <FiArrowRightCircle />
-                {dado.comentarios.Nom_Fase ? <p>{dado.comentarios.Nom_Fase}</p> : ''}
+                {dado.comentarios.Nom_Fase ? (
+                    <p>{dado.comentarios.Nom_Fase}</p>
+                ) : (
+                    ''
+                )}
             </article>
         </section>
     );

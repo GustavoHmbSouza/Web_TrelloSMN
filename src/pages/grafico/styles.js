@@ -5,7 +5,4 @@ const roxoSuperClaro = 'rgb(236, 231, 248)';
 const verdeAgua = 'rgb(3, 212, 167)';
 const boxShadowPadrao = '1px 2px 5px rgba(0, 0, 0, 0.5)';
 
-export const Main = styled.main`
-
-`;
-
+export const Main = styled.main``;

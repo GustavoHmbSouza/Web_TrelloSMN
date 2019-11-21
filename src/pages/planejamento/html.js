@@ -1,7 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import ItemContainers from './itemContainers';
 import AreaTrabalho from './areaTrabalho';
-import Menu from './../../components/Menu'
+import Menu from '../../components/Menu';
+
 import {
     Main,
     ItemLevantamento,
@@ -10,14 +12,16 @@ import {
     ItemFix,
 } from './styles';
 
-export default function Html(props) {
+function Html(props) {
     const {
-        dados,
+        dadosTrello,
         ItemMenu,
         idCardSelecionado,
         alteraValorBotao,
         selecionaQuadro,
     } = props;
+
+    const { dados } = dadosTrello[0];
 
     return (
         <>
@@ -62,114 +66,114 @@ export default function Html(props) {
                             <h1 className="tituloColuna">Atenção!</h1>
                             <>
                                 {dados.atencao.sol.length != 0 &&
-                                    ItemMenu.ItemSolicitacoesEnabled ? (
-                                        <ItemContainers
-                                            dados={dados.atencao.sol}
-                                            ItemMenu={ItemMenu}
-                                            selecionaQuadro={selecionaQuadro}
-                                            idCardSelecionado={idCardSelecionado}
-                                        />
-                                    ) : (
-                                        ''
-                                    )}
+                                ItemMenu.ItemSolicitacoesEnabled ? (
+                                    <ItemContainers
+                                        dados={dados.atencao.sol}
+                                        ItemMenu={ItemMenu}
+                                        selecionaQuadro={selecionaQuadro}
+                                        idCardSelecionado={idCardSelecionado}
+                                    />
+                                ) : (
+                                    ''
+                                )}
                                 {dados.atencao.fix.length != 0 &&
-                                    ItemMenu.ItemFixEnabled ? (
-                                        <ItemContainers
-                                            dados={dados.atencao.fix}
-                                            ItemMenu={ItemMenu}
-                                            selecionaQuadro={selecionaQuadro}
-                                            idCardSelecionado={idCardSelecionado}
-                                        />
-                                    ) : (
-                                        ''
-                                    )}
+                                ItemMenu.ItemFixEnabled ? (
+                                    <ItemContainers
+                                        dados={dados.atencao.fix}
+                                        ItemMenu={ItemMenu}
+                                        selecionaQuadro={selecionaQuadro}
+                                        idCardSelecionado={idCardSelecionado}
+                                    />
+                                ) : (
+                                    ''
+                                )}
                                 {dados.atencao.requerimento.length != 0 &&
-                                    ItemMenu.ItemRequerimentosEnabled ? (
-                                        <ItemContainers
-                                            dados={dados.atencao.requerimento}
-                                            ItemMenu={ItemMenu}
-                                            selecionaQuadro={selecionaQuadro}
-                                            idCardSelecionado={idCardSelecionado}
-                                        />
-                                    ) : (
-                                        ''
-                                    )}
+                                ItemMenu.ItemRequerimentosEnabled ? (
+                                    <ItemContainers
+                                        dados={dados.atencao.requerimento}
+                                        ItemMenu={ItemMenu}
+                                        selecionaQuadro={selecionaQuadro}
+                                        idCardSelecionado={idCardSelecionado}
+                                    />
+                                ) : (
+                                    ''
+                                )}
                             </>
                         </section>
                         <section className="coluna">
                             <h1 className="tituloColuna">Atrasado!</h1>
                             <>
                                 {dados.atrasado.sol.length != 0 &&
-                                    ItemMenu.ItemSolicitacoesEnabled ? (
-                                        <ItemContainers
-                                            dados={dados.atrasado.sol}
-                                            ItemMenu={ItemMenu}
-                                            selecionaQuadro={selecionaQuadro}
-                                            idCardSelecionado={idCardSelecionado}
-                                        />
-                                    ) : (
-                                        ''
-                                    )}
+                                ItemMenu.ItemSolicitacoesEnabled ? (
+                                    <ItemContainers
+                                        dados={dados.atrasado.sol}
+                                        ItemMenu={ItemMenu}
+                                        selecionaQuadro={selecionaQuadro}
+                                        idCardSelecionado={idCardSelecionado}
+                                    />
+                                ) : (
+                                    ''
+                                )}
                                 {dados.atrasado.fix.length != 0 &&
-                                    ItemMenu.ItemFixEnabled ? (
-                                        <ItemContainers
-                                            dados={dados.atrasado.fix}
-                                            ItemMenu={ItemMenu}
-                                            selecionaQuadro={selecionaQuadro}
-                                            idCardSelecionado={idCardSelecionado}
-                                        />
-                                    ) : (
-                                        ''
-                                    )}
+                                ItemMenu.ItemFixEnabled ? (
+                                    <ItemContainers
+                                        dados={dados.atrasado.fix}
+                                        ItemMenu={ItemMenu}
+                                        selecionaQuadro={selecionaQuadro}
+                                        idCardSelecionado={idCardSelecionado}
+                                    />
+                                ) : (
+                                    ''
+                                )}
                                 {dados.atrasado.requerimento.length != 0 &&
-                                    ItemMenu.ItemRequerimentosEnabled ? (
-                                        <ItemContainers
-                                            dados={dados.atrasado.requerimento}
-                                            ItemMenu={ItemMenu}
-                                            selecionaQuadro={selecionaQuadro}
-                                            idCardSelecionado={idCardSelecionado}
-                                        />
-                                    ) : (
-                                        ''
-                                    )}
+                                ItemMenu.ItemRequerimentosEnabled ? (
+                                    <ItemContainers
+                                        dados={dados.atrasado.requerimento}
+                                        ItemMenu={ItemMenu}
+                                        selecionaQuadro={selecionaQuadro}
+                                        idCardSelecionado={idCardSelecionado}
+                                    />
+                                ) : (
+                                    ''
+                                )}
                             </>
                         </section>
                         <section className="coluna">
                             <h1 className="tituloColuna">Concluído!</h1>
                             <>
                                 {dados.concluido.sol.length != 0 &&
-                                    ItemMenu.ItemSolicitacoesEnabled ? (
-                                        <ItemContainers
-                                            dados={dados.concluido.sol}
-                                            ItemMenu={ItemMenu}
-                                            selecionaQuadro={selecionaQuadro}
-                                            idCardSelecionado={idCardSelecionado}
-                                        />
-                                    ) : (
-                                        ''
-                                    )}
+                                ItemMenu.ItemSolicitacoesEnabled ? (
+                                    <ItemContainers
+                                        dados={dados.concluido.sol}
+                                        ItemMenu={ItemMenu}
+                                        selecionaQuadro={selecionaQuadro}
+                                        idCardSelecionado={idCardSelecionado}
+                                    />
+                                ) : (
+                                    ''
+                                )}
                                 {dados.concluido.fix.length != 0 &&
-                                    ItemMenu.ItemFixEnabled ? (
-                                        <ItemContainers
-                                            dados={dados.concluido.fix}
-                                            ItemMenu={ItemMenu}
-                                            selecionaQuadro={selecionaQuadro}
-                                            idCardSelecionado={idCardSelecionado}
-                                        />
-                                    ) : (
-                                        ''
-                                    )}
+                                ItemMenu.ItemFixEnabled ? (
+                                    <ItemContainers
+                                        dados={dados.concluido.fix}
+                                        ItemMenu={ItemMenu}
+                                        selecionaQuadro={selecionaQuadro}
+                                        idCardSelecionado={idCardSelecionado}
+                                    />
+                                ) : (
+                                    ''
+                                )}
                                 {dados.concluido.requerimento.length != 0 &&
-                                    ItemMenu.ItemRequerimentosEnabled ? (
-                                        <ItemContainers
-                                            dados={dados.concluido.requerimento}
-                                            ItemMenu={ItemMenu}
-                                            selecionaQuadro={selecionaQuadro}
-                                            idCardSelecionado={idCardSelecionado}
-                                        />
-                                    ) : (
-                                        ''
-                                    )}
+                                ItemMenu.ItemRequerimentosEnabled ? (
+                                    <ItemContainers
+                                        dados={dados.concluido.requerimento}
+                                        ItemMenu={ItemMenu}
+                                        selecionaQuadro={selecionaQuadro}
+                                        idCardSelecionado={idCardSelecionado}
+                                    />
+                                ) : (
+                                    ''
+                                )}
                             </>
                         </section>
                     </section>
@@ -177,67 +181,71 @@ export default function Html(props) {
                         dado.Id === idCardSelecionado ? (
                             <AreaTrabalho dado={dado} />
                         ) : (
-                                ''
-                            )
+                            ''
+                        )
                     )}
                     {dados.atencao.fix.map(dado =>
                         dado.Id === idCardSelecionado ? (
                             <AreaTrabalho dado={dado} />
                         ) : (
-                                ''
-                            )
+                            ''
+                        )
                     )}
                     {dados.atencao.requerimento.map(dado =>
                         dado.Id === idCardSelecionado ? (
                             <AreaTrabalho dado={dado} />
                         ) : (
-                                ''
-                            )
+                            ''
+                        )
                     )}
                     {dados.atrasado.sol.map(dado =>
                         dado.Id === idCardSelecionado ? (
                             <AreaTrabalho dado={dado} />
                         ) : (
-                                ''
-                            )
+                            ''
+                        )
                     )}
                     {dados.atrasado.fix.map(dado =>
                         dado.Id === idCardSelecionado ? (
                             <AreaTrabalho dado={dado} />
                         ) : (
-                                ''
-                            )
+                            ''
+                        )
                     )}
                     {dados.atrasado.requerimento.map(dado =>
                         dado.Id === idCardSelecionado ? (
                             <AreaTrabalho dado={dado} />
                         ) : (
-                                ''
-                            )
+                            ''
+                        )
                     )}
                     {dados.concluido.sol.map(dado =>
                         dado.Id === idCardSelecionado ? (
                             <AreaTrabalho dado={dado} />
                         ) : (
-                                ''
-                            )
+                            ''
+                        )
                     )}
                     {dados.concluido.fix.map(dado =>
                         dado.Id === idCardSelecionado ? (
                             <AreaTrabalho dado={dado} />
                         ) : (
-                                ''
-                            )
+                            ''
+                        )
                     )}
                     {dados.concluido.requerimento.map(dado =>
                         dado.Id === idCardSelecionado ? (
                             <AreaTrabalho dado={dado} />
                         ) : (
-                                ''
-                            )
+                            ''
+                        )
                     )}
                 </div>
             </Main>
         </>
     );
 }
+
+export default connect(state => ({
+    dadosTrello: state.dadosTrello,
+}))(Html);
