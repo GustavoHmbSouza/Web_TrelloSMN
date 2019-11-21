@@ -23,9 +23,9 @@ module.exports = {
             'warn',
             { extensions: ['.jsx', '.js'] },
         ],
-        'import/prefer-default-export': 'off',
+        'import/prefer-deafult-export': 'off',
         'react/state-in-constructor': 'off',
+        eqeqeq: 'off',
         'react/prop-types': 'off',
-        'react/jsx-no-target-blank': 'off',
     },
 };

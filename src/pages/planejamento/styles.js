@@ -37,15 +37,14 @@ export const Main = styled.main`
         }
     }
 
-    #conteudo
-    {
+    #conteudo {
         display: grid;
         grid-template-columns: minmax(600px, 3fr) minmax(500px, 1fr);
 
         #colunas {
             margin-top: 30px;
             display: flex;
-            
+
             .coluna {
                 min-height: 600px;
                 margin-right: 40px;
@@ -112,19 +111,17 @@ export const Main = styled.main`
             background-color: ${roxoSuperClaro};
             border-radius: 5px;
             max-height: 600px;
-            
-            article
-            {
+
+            article {
                 margin: 25px 0px 25px 50px;
                 min-height: 28px;
 
-                & + article
-                {
+                & + article {
                     display: flex;
                     align-items: center;
-                } 
-                
-                svg{
+                }
+
+                svg {
                     color: ${roxoClaro};
                     font-size: 25px;
                     margin-right: 5px;
@@ -132,41 +129,36 @@ export const Main = styled.main`
 
                 p {
                     border: 1px solid ${roxoClaro};
-                   
+
                     background: white;
                     border-radius: 20px;
                     padding: 5px;
                 }
             }
 
-            #dataInicioFim
-            {
-                p
-                {
-                    & + p{
+            #dataInicioFim {
+                p {
+                    & + p {
                         margin-left: 5px;
                     }
                 }
             }
-            
-            #descrAreaTrabalho {
 
+            #descrAreaTrabalho {
                 svg {
                     color: ${roxoClaro};
                     font-size: 25px;
                 }
 
-                p{
+                p {
                     width: 400px;
                     height: 250px;
                     border-radius: 5px;
                 }
             }
 
-
-            #horasFuncionalidade{
-
-                p{
+            #horasFuncionalidade {
+                p {
                 }
             }
 
@@ -180,7 +172,7 @@ export const Main = styled.main`
                     margin-right: 5px;
                 }
             }
-        }   
+        }
     }
 
     #cardSelecionado {

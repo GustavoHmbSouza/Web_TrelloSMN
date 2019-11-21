@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import api from '../../services/api';
-
 import Html from './html';
 
-export default class planejamento extends Component {
+class planejamento extends Component {
     state = {
-        dados: [],
         loading: false,
         ItemMenu: {
             ItemLevantamentoEnabled: true,
@@ -19,8 +18,18 @@ export default class planejamento extends Component {
     async componentDidMount() {
         const response = await api.get(`/DadosTrello`);
 
-        this.setState({
+        const data = {
             dados: response.data,
+            loadingDados: true,
+        };
+        const { dispatch } = this.props;
+
+        dispatch({
+            type: 'ADD_TO_DADOSTRELLO',
+            data,
+        });
+
+        this.setState({
             loading: true,
         });
     }
@@ -28,25 +37,27 @@ export default class planejamento extends Component {
     alteraValorBotao = param => {
         const { ItemMenu } = this.state;
 
-        if ((ItemMenu.ItemLevantamentoEnabled &&
-            !ItemMenu.ItemRequerimentosEnabled &&
-            !ItemMenu.ItemSolicitacoesEnabled &&
-            !ItemMenu.ItemFixEnabled && param == 1) ||
-
+        if (
+            (ItemMenu.ItemLevantamentoEnabled &&
+                !ItemMenu.ItemRequerimentosEnabled &&
+                !ItemMenu.ItemSolicitacoesEnabled &&
+                !ItemMenu.ItemFixEnabled &&
+                param == 1) ||
             (!ItemMenu.ItemLevantamentoEnabled &&
                 ItemMenu.ItemRequerimentosEnabled &&
                 !ItemMenu.ItemSolicitacoesEnabled &&
-                !ItemMenu.ItemFixEnabled && param == 1) ||
-
+                !ItemMenu.ItemFixEnabled &&
+                param == 1) ||
             (!ItemMenu.ItemLevantamentoEnabled &&
                 !ItemMenu.ItemRequerimentosEnabled &&
                 ItemMenu.ItemSolicitacoesEnabled &&
-                !ItemMenu.ItemFixEnabled && param == 3) ||
-
+                !ItemMenu.ItemFixEnabled &&
+                param == 3) ||
             (!ItemMenu.ItemLevantamentoEnabled &&
                 !ItemMenu.ItemRequerimentosEnabled &&
                 !ItemMenu.ItemSolicitacoesEnabled &&
-                ItemMenu.ItemFixEnabled && param == 4)
+                ItemMenu.ItemFixEnabled &&
+                param == 4)
         ) {
             this.setState({
                 ItemMenu: {
@@ -164,11 +175,10 @@ export default class planejamento extends Component {
         const { loading } = this.state;
 
         if (loading) {
-            const { dados, ItemMenu, idCardSelecionado } = this.state;
+            const { ItemMenu, idCardSelecionado } = this.state;
 
             return (
                 <Html
-                    dados={dados}
                     ItemMenu={ItemMenu}
                     idCardSelecionado={idCardSelecionado}
                     selecionaQuadro={this.selecionaQuadro}
@@ -179,3 +189,7 @@ export default class planejamento extends Component {
         return <></>;
     }
 }
+
+export default connect(state => ({
+    dadosTrello: state.dadosTrello,
+}))(planejamento);
