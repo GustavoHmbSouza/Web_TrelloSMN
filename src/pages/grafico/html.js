@@ -188,17 +188,21 @@ function Html({ dadosTrello, selecionaGrafico, graficoSelecionado }) {
             dados.previsto.requerimento,
             dados.previsto.fix,
         ];
-        devsAtrasado =
-            dados.atrasado.sol +
-            dados.atrasado.requerimento +
-            dados.atrasado.fix;
-        devsAtencao =
-            dados.atencao.sol + dados.atencao.requerimento + dados.atencao.fix;
-        devsConcluido =
-            dados.concluido.sol +
-            dados.concluido.requerimento +
-            dados.concluido.fix;
-        console.log(devsPrevisto);
+        devsAtrasado = [
+            dados.atrasado.sol,
+            dados.atrasado.requerimento,
+            dados.atrasado.fix,
+        ];
+        devsAtencao = [
+            dados.atencao.sol,
+            dados.atencao.requerimento,
+            dados.atencao.fix,
+        ];
+        devsConcluido = [
+            dados.concluido.sol,
+            dados.concluido.requerimento,
+            dados.concluido.fix,
+        ];
     } else if (graficoSelecionado == 'Sol') {
         total = qtdSol;
         totalHoras = qtdHorasSol;
@@ -349,10 +353,30 @@ function Html({ dadosTrello, selecionaGrafico, graficoSelecionado }) {
     const daChar = {
         options: {
             labels: [
-                { qtd: qtdHorasPrevistoConcluido, devs: devsPrevisto, title },
-                { qtd: qtdHorasAtencaoConcluido, devs: devsAtencao, title },
-                { qtd: qtdHorasAtrasadoConcluido, devs: devsAtrasado, title },
-                { qtd: qtdHorasConcluidoConcluido, devs: devsConcluido, title },
+                {
+                    qtd: qtdHorasPrevistoConcluido,
+                    devs: devsPrevisto,
+                    title,
+                    modalGrafico: true,
+                },
+                {
+                    qtd: qtdHorasAtencaoConcluido,
+                    devs: devsAtencao,
+                    title,
+                    modalGrafico: true,
+                },
+                {
+                    qtd: qtdHorasAtrasadoConcluido,
+                    devs: devsAtrasado,
+                    title,
+                    modalGrafico: true,
+                },
+                {
+                    qtd: qtdHorasConcluidoConcluido,
+                    devs: devsConcluido,
+                    title,
+                    modalGrafico: true,
+                },
             ],
             colors: ['#00BFFF', '#FFFF00', '#F44336', '#00FF00'],
             tooltip: {
