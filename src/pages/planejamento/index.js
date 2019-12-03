@@ -20,7 +20,6 @@ class planejamento extends Component {
 
         const data = {
             dados: response.data,
-            loadingDados: true,
         };
         const { dispatch } = this.props;
 

@@ -27,5 +27,7 @@ module.exports = {
         'react/state-in-constructor': 'off',
         eqeqeq: 'off',
         'react/prop-types': 'off',
+        'no-sparse-arrays': 'off',
+        'import/prefer-default-export': 'off',
     },
 };
