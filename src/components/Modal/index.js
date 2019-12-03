@@ -18,7 +18,7 @@ const customStyles = {
 
 export default function App({ props }) {
     const [modalIsOpen, setIsOpen] = React.useState(true);
-    const { devs, qtd, title, modalGrafico } = props;
+    const { devs, horas, title, modalGrafico } = props;
 
     function openModal() {
         setIsOpen(true);
@@ -36,13 +36,12 @@ export default function App({ props }) {
             contentLabel="Example Modal"
         >
             {(() => {
-                console.log(modalGrafico);
-                console.log(title);
                 if (modalGrafico) {
                     return (
                         <ModalGrafico>
                             <h1>
-                                Total horas concluído: <span>{qtd}H</span>
+                                Horas: <span>{horas.totalHoras}H</span>{' '}
+                                <span>{horas.concluidoHoras}H</span>
                             </h1>
                             {(() => {
                                 if (title != 'Todos' && devs) {
@@ -57,6 +56,13 @@ export default function App({ props }) {
                                             </a>
                                             <span>
                                                 {dado.comentarios.Num_Horas}H
+                                            </span>
+                                            <span>
+                                                {
+                                                    dado.comentarios
+                                                        .Num_HorasConcluido
+                                                }
+                                                H
                                             </span>
                                         </li>
                                     ));
@@ -74,6 +80,13 @@ export default function App({ props }) {
                                                 </a>
                                                 <span>
                                                     {dado.comentarios.Num_Horas}
+                                                    H
+                                                </span>
+                                                <span>
+                                                    {
+                                                        dado.comentarios
+                                                            .Num_HorasConcluido
+                                                    }
                                                     H
                                                 </span>
                                             </li>

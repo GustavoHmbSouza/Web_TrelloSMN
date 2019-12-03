@@ -19,7 +19,9 @@ function Html({ dadosTrello, selecionaGrafico, graficoSelecionado }) {
     let dataPoints = [];
     let title;
     let total;
-    let totalHoras;
+    let totalHoras = '';
+
+    //Não sei ainda se vou precisa usar essas variáveis
     let totalHorasConcluido;
     let totalHorasPrevisto;
 
@@ -97,10 +99,17 @@ function Html({ dadosTrello, selecionaGrafico, graficoSelecionado }) {
     let qtdHorasAtrasadoConcluido = 0;
     let qtdHorasConcluidoConcluido = 0;
 
+    // Variáveis que vão nos labels e mais tarde serão exibidos na modal
     let devsPrevisto;
     let devsAtencao;
     let devsAtrasado;
     let devsConcluido;
+
+    // Variáveis que vão nos labels e mais tarde serão exibidos na modal
+    let qtdHorasPrevistoModal = 0;
+    let qtdHoraAtencaoModal = 0;
+    let qtdHorasAtrasadoModal = 0;
+    let qtdHorasConcluidoModal = 0;
 
     if (graficoSelecionado == 'Todos') {
         total = qtdSol + qtdRequerimento + qtdFix;
@@ -203,6 +212,23 @@ function Html({ dadosTrello, selecionaGrafico, graficoSelecionado }) {
             dados.concluido.requerimento,
             dados.concluido.fix,
         ];
+
+        qtdHorasPrevistoModal =
+            dados.previsto.qtdSol.qtdHorasTotal +
+            dados.previsto.qtdRequerimento.qtdHorasTotal +
+            dados.previsto.qtdFix.qtdHorasTotal;
+        qtdHoraAtencaoModal =
+            dados.atencao.qtdSol.qtdHorasTotal +
+            dados.atencao.qtdRequerimento.qtdHorasTotal +
+            dados.atencao.qtdFix.qtdHorasTotal;
+        qtdHorasAtrasadoModal =
+            dados.atrasado.qtdSol.qtdHorasTotal +
+            dados.atrasado.qtdRequerimento.qtdHorasTotal +
+            dados.atrasado.qtdFix.qtdHorasTotal;
+        qtdHorasConcluidoModal =
+            dados.concluido.qtdSol.qtdHorasTotal +
+            dados.concluido.qtdRequerimento.qtdHorasTotal +
+            dados.concluido.qtdFix.qtdHorasTotal;
     } else if (graficoSelecionado == 'Sol') {
         total = qtdSol;
         totalHoras = qtdHorasSol;
@@ -246,6 +272,11 @@ function Html({ dadosTrello, selecionaGrafico, graficoSelecionado }) {
         devsAtrasado = dados.atrasado.sol;
         devsAtencao = dados.atencao.sol;
         devsConcluido = dados.concluido.sol;
+
+        qtdHorasPrevistoModal = dados.previsto.qtdSol.qtdHorasTotal;
+        qtdHoraAtencaoModal = dados.atencao.qtdSol.qtdHorasTotal;
+        qtdHorasAtrasadoModal = dados.atrasado.qtdSol.qtdHorasTotal;
+        qtdHorasConcluidoModal = dados.concluido.qtdSol.qtdHorasTotal;
     } else if (graficoSelecionado == 'Requerimento') {
         total = qtdRequerimento;
         totalHoras = qtdHorasRequerimento;
@@ -305,6 +336,11 @@ function Html({ dadosTrello, selecionaGrafico, graficoSelecionado }) {
         devsAtrasado = dados.atrasado.requerimento;
         devsAtencao = dados.atencao.requerimento;
         devsConcluido = dados.concluido.requerimento;
+
+        qtdHorasPrevistoModal = dados.previsto.qtdRequerimento.qtdHorasTotal;
+        qtdHoraAtencaoModal = dados.atencao.qtdRequerimento.qtdHorasTotal;
+        qtdHorasAtrasadoModal = dados.atrasado.qtdRequerimento.qtdHorasTotal;
+        qtdHorasConcluidoModal = dados.concluido.qtdRequerimento.qtdHorasTotal;
     } else if (graficoSelecionado == 'Fix') {
         total = qtdFix;
         totalHoras = qtdHorasFix;
@@ -348,31 +384,48 @@ function Html({ dadosTrello, selecionaGrafico, graficoSelecionado }) {
         devsAtrasado = dados.atrasado.fix;
         devsAtencao = dados.atencao.fix;
         devsConcluido = dados.concluido.fix;
+
+        qtdHorasPrevistoModal = dados.previsto.qtdFix.qtdHorasTotal;
+        qtdHoraAtencaoModal = dados.atencao.qtdFix.qtdHorasTotal;
+        qtdHorasAtrasadoModal = dados.atrasado.qtdFix.qtdHorasTotal;
+        qtdHorasConcluidoModal = dados.concluido.qtdFix.qtdHorasTotal;
     }
 
     const daChar = {
         options: {
             labels: [
                 {
-                    qtd: qtdHorasPrevistoConcluido,
+                    horas: {
+                        concluidoHoras: qtdHorasPrevistoConcluido,
+                        totalHoras: qtdHorasPrevistoModal,
+                    },
                     devs: devsPrevisto,
                     title,
                     modalGrafico: true,
                 },
                 {
-                    qtd: qtdHorasAtencaoConcluido,
+                    horas: {
+                        concluidoHoras: qtdHorasAtencaoConcluido,
+                        totalHoras: qtdHoraAtencaoModal,
+                    },
                     devs: devsAtencao,
                     title,
                     modalGrafico: true,
                 },
                 {
-                    qtd: qtdHorasAtrasadoConcluido,
+                    horas: {
+                        concluidoHoras: qtdHorasAtrasadoConcluido,
+                        totalHoras: qtdHorasAtrasadoModal,
+                    },
                     devs: devsAtrasado,
                     title,
                     modalGrafico: true,
                 },
                 {
-                    qtd: qtdHorasConcluidoConcluido,
+                    horas: {
+                        concluidoHoras: qtdHorasConcluidoConcluido,
+                        totalHoras: qtdHorasConcluidoModal,
+                    },
                     devs: devsConcluido,
                     title,
                     modalGrafico: true,

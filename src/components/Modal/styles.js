@@ -9,12 +9,21 @@ export const ModalGrafico = styled.div`
         font-size: 18px;
 
         span {
-            background: #00ff00;
+            background: blue;
             border-radius: 10px;
             padding: 3px 30px;
             margin-left: 5px;
             color: white;
             font-size: 14px;
+
+            &:last-child {
+                background: #00ff00;
+                border-radius: 10px;
+                padding: 3px 30px;
+                margin-left: 5px;
+                color: white;
+                font-size: 14px;
+            }
         }
     }
 
@@ -40,6 +49,14 @@ export const ModalGrafico = styled.div`
             padding: 3px 30px;
             margin-left: 5px;
             color: white;
+
+            &:last-child {
+                background: #00ff00;
+                border-radius: 10px;
+                padding: 3px 30px;
+                margin-left: 5px;
+                color: white;
+            }
         }
     }
 `;
