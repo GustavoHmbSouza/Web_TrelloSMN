@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import ItemContainers from './itemContainers';
-import AreaTrabalho from './areaTrabalho';
+import ItemContainers from './components/itemContainers';
+import AreaTrabalho from './components/areaTrabalho';
 import Menu from '../../components/Menu';
 
 import {

@@ -2,7 +2,7 @@ import React from 'react';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 import { FiMessageSquare, FiPaperclip } from 'react-icons/fi';
 import { IoMdCheckboxOutline } from 'react-icons/io';
-import MiniContainer from '../../components/MiniContainer/index';
+import MiniContainer from '../../../components/MiniContainer/index';
 
 export default function itemContainers(props) {
     const { dados, selecionaQuadro, idCardSelecionado } = props;

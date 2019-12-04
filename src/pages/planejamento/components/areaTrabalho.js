@@ -3,7 +3,7 @@ import { FiClock, FiArrowRightCircle } from 'react-icons/fi';
 import { IoIosMenu } from 'react-icons/io';
 import { MdGroup } from 'react-icons/md';
 import { FaCalendarAlt, FaHourglassStart } from 'react-icons/fa';
-import interrogacao from '../../imgs/interroga.jpg';
+import interrogacao from '../../../imgs/interroga.jpg';
 
 export default function areaTrabalho(props) {
     const { dado } = props;
