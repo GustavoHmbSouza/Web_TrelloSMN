@@ -6,6 +6,12 @@ import ReactDOM from 'react-dom';
 import Menu from '../../components/Menu';
 import { Main } from './styles';
 import Modal from '../../components/Modal';
+import {
+    corConcluido,
+    corAtrasado,
+    corAtencao,
+    corPrevisto,
+} from '../../styles/variaveisGlobais';
 
 function Html({ dadosTrello, selecionaGrafico, graficoSelecionado }) {
     if (!dadosTrello[0]) {
@@ -20,10 +26,7 @@ function Html({ dadosTrello, selecionaGrafico, graficoSelecionado }) {
     let title;
     let total;
     let totalHoras = '';
-
-    //Não sei ainda se vou precisa usar essas variáveis
     let totalHorasConcluido;
-    let totalHorasPrevisto;
 
     // Variáveis para quantidade de solicitações
     const qtdSol =
@@ -76,23 +79,6 @@ function Html({ dadosTrello, selecionaGrafico, graficoSelecionado }) {
         dados.atrasado.qtdFix.qtdHorasConcluido +
         dados.concluido.qtdFix.qtdHorasConcluido;
 
-    // Variáveis para o calculo de horas previstas
-    const qtdHorasPrevistoSol =
-        dados.previsto.qtdSol.qtdHorasPrevisto +
-        dados.atencao.qtdSol.qtdHorasPrevisto +
-        dados.atrasado.qtdSol.qtdHorasPrevisto +
-        dados.concluido.qtdSol.qtdHorasPrevisto;
-    const qtdHorasPrevistoRequerimento =
-        dados.previsto.qtdRequerimento.qtdHorasPrevisto +
-        dados.atencao.qtdRequerimento.qtdHorasPrevisto +
-        dados.atrasado.qtdRequerimento.qtdHorasPrevisto +
-        dados.concluido.qtdRequerimento.qtdHorasPrevisto;
-    const qtdHorasPrevistoFix =
-        dados.previsto.qtdFix.qtdHorasPrevisto +
-        dados.atencao.qtdFix.qtdHorasPrevisto +
-        dados.atrasado.qtdFix.qtdHorasPrevisto +
-        dados.concluido.qtdFix.qtdHorasPrevisto;
-
     // Variáveis que vão nos labels e mais tarde serão exibidos na modal
     let qtdHorasPrevistoConcluido = 0;
     let qtdHorasAtencaoConcluido = 0;
@@ -118,10 +104,6 @@ function Html({ dadosTrello, selecionaGrafico, graficoSelecionado }) {
             qtdHorasConcluidoSol +
             qtdHorasConcluidoRequerimento +
             qtdHorasConcluidoFix;
-        totalHorasPrevisto =
-            qtdHorasPrevistoSol +
-            qtdHorasPrevistoRequerimento +
-            qtdHorasPrevistoFix;
 
         dataPoints = [
             {
@@ -233,7 +215,6 @@ function Html({ dadosTrello, selecionaGrafico, graficoSelecionado }) {
         total = qtdSol;
         totalHoras = qtdHorasSol;
         totalHorasConcluido = qtdHorasConcluidoSol;
-        totalHorasPrevisto = qtdHorasPrevistoSol;
 
         dataPoints = [
             {
@@ -281,7 +262,6 @@ function Html({ dadosTrello, selecionaGrafico, graficoSelecionado }) {
         total = qtdRequerimento;
         totalHoras = qtdHorasRequerimento;
         totalHorasConcluido = qtdHorasConcluidoRequerimento;
-        totalHorasPrevisto = qtdHorasPrevistoRequerimento;
 
         dataPoints = [
             {
@@ -345,7 +325,6 @@ function Html({ dadosTrello, selecionaGrafico, graficoSelecionado }) {
         total = qtdFix;
         totalHoras = qtdHorasFix;
         totalHorasConcluido = qtdHorasConcluidoFix;
-        totalHorasPrevisto = qtdHorasPrevistoFix;
 
         dataPoints = [
             {
@@ -431,7 +410,7 @@ function Html({ dadosTrello, selecionaGrafico, graficoSelecionado }) {
                     modalGrafico: true,
                 },
             ],
-            colors: ['#00BFFF', '#FFFF00', '#F44336', '#00FF00'],
+            colors: [corPrevisto, corAtencao, corAtrasado, corConcluido],
             tooltip: {
                 enabled: false,
             },
@@ -490,7 +469,12 @@ function Html({ dadosTrello, selecionaGrafico, graficoSelecionado }) {
                         value={graficoSelecionado}
                         id="dropDown"
                     />
-                    <span id="qtdeTarefas">Qtde: {total}</span>
+                    <span id="qtdeTarefas">Quantidade: {total}</span>
+                    <span id="totalHoras">T horas: {totalHoras}</span>
+                    <span id="totalHorasConcluidas">
+                        T h Concluídas: {totalHorasConcluido}
+                    </span>
+
                     <ul>
                         <li>
                             <div id="legendaAzul"> </div>
@@ -507,10 +491,6 @@ function Html({ dadosTrello, selecionaGrafico, graficoSelecionado }) {
                         <li>
                             <div id="legendaVerde"> </div>
                             <p>Concluido</p>
-                        </li>
-                        <li>
-                            <div id="legendaRoxo"> </div>
-                            <p>Total</p>
                         </li>
                     </ul>
                 </nav>

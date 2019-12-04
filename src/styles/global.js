@@ -1,6 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-
-const roxoClaro = 'rgb(113, 89, 193)';
+import { corPrimaria } from './variaveisGlobais';
 
 export default createGlobalStyle`
     *{
@@ -37,8 +36,8 @@ export default createGlobalStyle`
 
         #cabecalho{
             font-size: 25px;
-            color: ${roxoClaro};
-            border-bottom: 1px solid ${roxoClaro};
+            color: ${corPrimaria};
+            border-bottom: 1px solid ${corPrimaria};
             padding-bottom: 8px;
             margin-bottom: 30px;
         }

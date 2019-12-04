@@ -1,11 +1,12 @@
 import styled from 'styled-components';
+import { darken } from 'polished';
+import {
+    corPrimaria,
+    corSecundaria,
+    boxShadowPadrao,
+} from '../../styles/variaveisGlobais';
 
-const roxoClaro = 'rgb(113, 89, 193)';
-const roxoSuperClaro = 'rgb(236, 231, 248)';
-const verdeAgua = 'rgb(3, 212, 167)';
-const boxShadowPadrao = '1px 2px 5px rgba(0, 0, 0, 0.5)';
-
-const bordaBotoesMenu = `color: ${verdeAgua}; border: 2px solid ${verdeAgua}; box-shadow: none;`;
+const bordaBotoesMenu = `color: ${corSecundaria}; border: 2px solid ${corSecundaria}; box-shadow: none;`;
 
 export const Main = styled.main`
     max-width: 1400px;
@@ -18,12 +19,12 @@ export const Main = styled.main`
         li {
             font-size: 13px;
             list-style-type: none;
-            background: ${roxoClaro};
+            background: ${corPrimaria};
             border-radius: 20px;
             padding: 10px 0;
             min-width: 120px;
             text-align: center;
-            color: ${roxoSuperClaro};
+            color: ${darken(-0.4, corPrimaria)};
             border: 2px solid transparent;
             cursor: pointer;
             box-shadow: ${boxShadowPadrao};
@@ -56,14 +57,14 @@ export const Main = styled.main`
                 & + .coluna {
                     width: 220px;
                     padding-left: 40px;
-                    border-left: 1px solid ${roxoClaro};
+                    border-left: 1px solid ${corPrimaria};
                 }
 
                 .miniContainer {
                     cursor: pointer;
 
                     &:hover {
-                        border: 1px solid ${verdeAgua};
+                        border: 1px solid ${corSecundaria};
                     }
 
                     p {
@@ -89,7 +90,7 @@ export const Main = styled.main`
                         }
                         a:hover {
                             text-decoration: underline;
-                            color: ${roxoClaro};
+                            color: ${corPrimaria};
                         }
 
                         a {
@@ -101,14 +102,14 @@ export const Main = styled.main`
 
             .tituloColuna {
                 text-align: center;
-                color: ${roxoClaro};
+                color: ${corPrimaria};
             }
         }
 
         #areaTrabalho {
             width: 500px;
-            border: 1px solid ${roxoClaro};
-            background-color: ${roxoSuperClaro};
+            border: 1px solid ${corPrimaria};
+            background-color: ${darken(-0.4, corPrimaria)};
             border-radius: 5px;
             max-height: 600px;
 
@@ -122,13 +123,13 @@ export const Main = styled.main`
                 }
 
                 svg {
-                    color: ${roxoClaro};
+                    color: ${corPrimaria};
                     font-size: 25px;
                     margin-right: 5px;
                 }
 
                 p {
-                    border: 1px solid ${roxoClaro};
+                    border: 1px solid ${corPrimaria};
 
                     background: white;
                     border-radius: 20px;
@@ -146,7 +147,7 @@ export const Main = styled.main`
 
             #descrAreaTrabalho {
                 svg {
-                    color: ${roxoClaro};
+                    color: ${corPrimaria};
                     font-size: 25px;
                 }
 
@@ -176,7 +177,7 @@ export const Main = styled.main`
     }
 
     #cardSelecionado {
-        border: 1px solid ${verdeAgua};
+        border: 1px solid ${corSecundaria};
         box-shadow: none;
     }
 `;

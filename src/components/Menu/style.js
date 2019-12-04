@@ -1,40 +1,37 @@
 import styled from 'styled-components';
-
-const roxoClaro = 'rgb(113, 89, 193)';
-const verdeAgua = 'rgb(3, 212, 167)';
+import { corPrimaria, corSecundaria } from '../../styles/variaveisGlobais';
 
 export const Menu = styled.nav`
     display: flex;
     flex-direction: column;
-    background: ${roxoClaro};
+    background: ${corPrimaria};
     justify-content: space-between;
     height: 100vh;
 
     padding: 40px 5px;
-    svg{
+    svg {
         font-size: 35px;
         cursor: pointer;
         color: White;
 
-        &:hover{
-            color: ${verdeAgua}
+        &:hover {
+            color: ${corSecundaria};
         }
     }
 
-    #iconesMenu 
-    {
+    #iconesMenu {
         display: flex;
         flex-direction: column;
 
-        & + iconesMenu{
+        & + #iconesMenu {
             margin-top: 30px;
         }
     }
 
-    .icone{
+    .icone {
         margin: 0 auto;
 
-        & + .icone{
+        & + .icone {
             margin-top: 20px;
         }
     }

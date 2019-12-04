@@ -1,6 +1,11 @@
 import styled from 'styled-components';
-
-const roxoClaro = 'rgb(113, 89, 193)';
+import {
+    corPrimaria,
+    corConcluido,
+    corAtrasado,
+    corAtencao,
+    corPrevisto,
+} from '../../styles/variaveisGlobais';
 
 export const Main = styled.main`
     display: flex;
@@ -9,15 +14,15 @@ export const Main = styled.main`
     nav {
         .Dropdown-placeholder {
             width: 100px;
-            border-bottom: 2px solid ${roxoClaro};
+            border-bottom: 2px solid ${corPrimaria};
             cursor: pointer;
-            color: ${roxoClaro};
+            color: ${corPrimaria};
             font-weight: bold;
         }
 
         .Dropdown-menu {
             cursor: pointer;
-            color: ${roxoClaro};
+            color: ${corPrimaria};
             font-weight: bold;
             position: absolute;
             display: block;
@@ -37,44 +42,58 @@ export const Main = styled.main`
                 }
 
                 #legendaAzul {
-                    background: #00bfff;
+                    background: ${corPrevisto};
                 }
 
                 #legendaAmarelo {
-                    background: yellow;
+                    background: ${corAtencao};
                 }
 
                 #legendalaranja {
-                    background: rgb(239, 108, 0);
+                    background: ${corAtrasado};
                 }
 
                 #legendaVerde {
-                    background: rgb(34, 190, 118);
-                }
-
-                #legendaRoxo {
-                    background: ${roxoClaro};
+                    background: ${corConcluido};
                 }
 
                 p {
                     padding-left: 5px;
-                    color: ${roxoClaro};
+                    color: ${corPrimaria};
                 }
             }
         }
 
         #qtdeTarefas {
-            border-bottom: 2px solid ${roxoClaro};
-            color: ${roxoClaro};
-            width: 100px;
+            border-bottom: 2px solid ${corPrimaria};
+            color: ${corPrimaria};
+            width: 140px;
             margin-top: 80px;
+            display: block;
+            font-weight: bold;
+        }
+
+        #totalHoras {
+            border-bottom: 2px solid ${corPrimaria};
+            color: ${corPrimaria};
+            width: 140px;
+            margin-top: 50px;
+            display: block;
+            font-weight: bold;
+        }
+
+        #totalHorasConcluidas {
+            border-bottom: 2px solid ${corConcluido};
+            color: ${corConcluido};
+            width: 140px;
+            margin-top: 50px;
             display: block;
             font-weight: bold;
         }
     }
 
     #graficoQtd {
-        color: ${roxoClaro};
+        color: ${corPrimaria};
         font-weight: bold;
         text-align: center;
         margin-left: 100px;
@@ -85,7 +104,7 @@ export const Main = styled.main`
     }
 
     #graficoHoras {
-        color: ${roxoClaro};
+        color: ${corPrimaria};
         font-weight: bold;
         text-align: center;
 

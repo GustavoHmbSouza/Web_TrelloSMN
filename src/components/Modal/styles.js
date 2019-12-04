@@ -1,6 +1,9 @@
 import styled from 'styled-components';
-
-const roxoClaro = 'rgb(113, 89, 193)';
+import {
+    corPrimaria,
+    corConcluido,
+    corPrevisto,
+} from '../../styles/variaveisGlobais';
 
 export const ModalGrafico = styled.div`
     max-width: 600px;
@@ -9,7 +12,7 @@ export const ModalGrafico = styled.div`
         font-size: 18px;
 
         span {
-            background: blue;
+            background: ${corPrevisto};
             border-radius: 10px;
             padding: 3px 30px;
             margin-left: 5px;
@@ -17,7 +20,7 @@ export const ModalGrafico = styled.div`
             font-size: 14px;
 
             &:last-child {
-                background: #00ff00;
+                background: ${corConcluido};
                 border-radius: 10px;
                 padding: 3px 30px;
                 margin-left: 5px;
@@ -39,19 +42,19 @@ export const ModalGrafico = styled.div`
             &:visited,
             &:hover,
             &:active {
-                color: ${roxoClaro};
+                color: ${corPrimaria};
             }
         }
 
         span {
-            background: blue;
+            background: ${corPrevisto};
             border-radius: 10px;
             padding: 3px 30px;
             margin-left: 5px;
             color: white;
 
             &:last-child {
-                background: #00ff00;
+                background: ${corConcluido};
                 border-radius: 10px;
                 padding: 3px 30px;
                 margin-left: 5px;
