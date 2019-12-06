@@ -32,50 +32,53 @@ function Html({
         <>
             <Menu />
             <Main>
-                <nav>
-                    <Dropdown
-                        options={options}
-                        onChange={e => {
-                            selecionaGrafico({ opt: e.value, dados });
-                        }}
-                        value={graficoSelecionado}
-                        id="dropDown"
-                    />
-                    <span id="qtdeTarefas">Quantidade: {total}</span>
-                    <span id="totalHoras">T horas: {totalHoras}</span>
-                    <span id="totalHorasConcluidas">
-                        T h Concluídas: {totalHorasConcluido}
-                    </span>
+                <header id="cabecalho">Gráfico</header>
+                <div>
+                    <nav>
+                        <Dropdown
+                            options={options}
+                            onChange={e => {
+                                selecionaGrafico({ opt: e.value, dados });
+                            }}
+                            value={graficoSelecionado}
+                            id="dropDown"
+                        />
+                        <span id="qtdeTarefas">Quantidade: {total}</span>
+                        <span id="totalHoras">T horas: {totalHoras}</span>
+                        <span id="totalHorasConcluidas">
+                            T h Concluídas: {totalHorasConcluido}
+                        </span>
 
-                    <ul>
-                        <li>
-                            <div id="legendaAzul"> </div>
-                            <p>Previsto</p>
-                        </li>
-                        <li>
-                            <div id="legendaAmarelo"> </div>
-                            <p>Atenção</p>
-                        </li>
-                        <li>
-                            <div id="legendalaranja"> </div>
-                            <p>Atrasado</p>
-                        </li>
-                        <li>
-                            <div id="legendaVerde"> </div>
-                            <p>Concluido</p>
-                        </li>
-                    </ul>
-                </nav>
-                <div id="graficoQtd">
-                    <p>Quantidade</p>
-                    <Chart
-                        options={optionsGrafico}
-                        series={seriesGrafico}
-                        type="donut"
-                        width="380"
-                    />
+                        <ul>
+                            <li>
+                                <div id="legendaAzul"> </div>
+                                <p>Previsto</p>
+                            </li>
+                            <li>
+                                <div id="legendaAmarelo"> </div>
+                                <p>Atenção</p>
+                            </li>
+                            <li>
+                                <div id="legendalaranja"> </div>
+                                <p>Atrasado</p>
+                            </li>
+                            <li>
+                                <div id="legendaVerde"> </div>
+                                <p>Concluido</p>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div id="graficoQtd">
+                        <p>Quantidade</p>
+                        <Chart
+                            options={optionsGrafico}
+                            series={seriesGrafico}
+                            type="donut"
+                            width="380"
+                        />
+                    </div>
+                    <div id="idModal" />
                 </div>
-                <div id="idModal" />
             </Main>
         </>
     );

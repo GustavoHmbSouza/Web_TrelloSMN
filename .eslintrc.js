@@ -29,5 +29,7 @@ module.exports = {
         'react/prop-types': 'off',
         'no-sparse-arrays': 'off',
         'import/prefer-default-export': 'off',
+        'prettier/prettier': 'off',
+        'react/button-has-type': 'off',
     },
 };

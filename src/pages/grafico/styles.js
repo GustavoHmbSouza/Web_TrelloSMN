@@ -8,108 +8,111 @@ import {
 } from '../../styles/variaveisGlobais';
 
 export const Main = styled.main`
-    display: flex;
     padding: 50px;
 
-    nav {
-        .Dropdown-placeholder {
-            width: 100px;
-            border-bottom: 2px solid ${corPrimaria};
-            cursor: pointer;
-            color: ${corPrimaria};
-            font-weight: bold;
-        }
+    > div {
+        display: flex;
 
-        .Dropdown-menu {
-            cursor: pointer;
-            color: ${corPrimaria};
-            font-weight: bold;
-            position: absolute;
-            display: block;
-        }
+        nav {
+            .Dropdown-placeholder {
+                width: 100px;
+                border-bottom: 2px solid ${corPrimaria};
+                cursor: pointer;
+                color: ${corPrimaria};
+                font-weight: bold;
+            }
 
-        ul {
-            margin-top: 40px;
+            .Dropdown-menu {
+                cursor: pointer;
+                color: ${corPrimaria};
+                font-weight: bold;
+                position: absolute;
+                display: block;
+            }
 
-            li {
-                list-style: none;
-                padding-top: 10px;
-                display: flex;
+            ul {
+                margin-top: 40px;
 
-                div {
-                    width: 20px;
-                    height: 20px;
+                li {
+                    list-style: none;
+                    padding-top: 10px;
+                    display: flex;
+
+                    div {
+                        width: 20px;
+                        height: 20px;
+                    }
+
+                    #legendaAzul {
+                        background: ${corPrevisto};
+                    }
+
+                    #legendaAmarelo {
+                        background: ${corAtencao};
+                    }
+
+                    #legendalaranja {
+                        background: ${corAtrasado};
+                    }
+
+                    #legendaVerde {
+                        background: ${corConcluido};
+                    }
+
+                    p {
+                        padding-left: 5px;
+                        color: ${corPrimaria};
+                    }
                 }
+            }
 
-                #legendaAzul {
-                    background: ${corPrevisto};
-                }
+            #qtdeTarefas {
+                border-bottom: 2px solid ${corPrimaria};
+                color: ${corPrimaria};
+                width: 140px;
+                margin-top: 80px;
+                display: block;
+                font-weight: bold;
+            }
 
-                #legendaAmarelo {
-                    background: ${corAtencao};
-                }
+            #totalHoras {
+                border-bottom: 2px solid ${corPrimaria};
+                color: ${corPrimaria};
+                width: 140px;
+                margin-top: 50px;
+                display: block;
+                font-weight: bold;
+            }
 
-                #legendalaranja {
-                    background: ${corAtrasado};
-                }
-
-                #legendaVerde {
-                    background: ${corConcluido};
-                }
-
-                p {
-                    padding-left: 5px;
-                    color: ${corPrimaria};
-                }
+            #totalHorasConcluidas {
+                border-bottom: 2px solid ${corConcluido};
+                color: ${corConcluido};
+                width: 140px;
+                margin-top: 50px;
+                display: block;
+                font-weight: bold;
             }
         }
 
-        #qtdeTarefas {
-            border-bottom: 2px solid ${corPrimaria};
+        #graficoQtd {
             color: ${corPrimaria};
-            width: 140px;
-            margin-top: 80px;
-            display: block;
             font-weight: bold;
+            text-align: center;
+            margin-left: 100px;
+
+            p {
+                margin-bottom: 10px;
+            }
         }
 
-        #totalHoras {
-            border-bottom: 2px solid ${corPrimaria};
+        #graficoHoras {
             color: ${corPrimaria};
-            width: 140px;
-            margin-top: 50px;
-            display: block;
             font-weight: bold;
-        }
+            text-align: center;
 
-        #totalHorasConcluidas {
-            border-bottom: 2px solid ${corConcluido};
-            color: ${corConcluido};
-            width: 140px;
-            margin-top: 50px;
-            display: block;
-            font-weight: bold;
-        }
-    }
-
-    #graficoQtd {
-        color: ${corPrimaria};
-        font-weight: bold;
-        text-align: center;
-        margin-left: 100px;
-
-        p {
-            margin-bottom: 10px;
-        }
-    }
-
-    #graficoHoras {
-        color: ${corPrimaria};
-        font-weight: bold;
-        text-align: center;
-
-        p {
-            margin-bottom: 10px;
+            p {
+                margin-bottom: 10px;
+            }
         }
     }
 `;

@@ -10,7 +10,7 @@ export default function App() {
     return (
         <Menu>
             <div id="iconesMenu">
-                <Link class="icone" to={`/`}>
+                <Link class="icone" to={`/planejamento`}>
                     <GiHouse />
                 </Link>
                 <Link class="icone" to={`/grafico/`}>

@@ -22,6 +22,8 @@ export const Menu = styled.nav`
     #iconesMenu {
         display: flex;
         flex-direction: column;
+        margin-left: 5px;
+        margin-right: 5px;
 
         & + #iconesMenu {
             margin-top: 30px;

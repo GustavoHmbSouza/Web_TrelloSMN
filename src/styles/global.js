@@ -11,7 +11,8 @@ export default createGlobalStyle`
 
     html, body, #root
     {
-        min-height: 100%;
+        height: 100vh;
+        width: 100vw;
     }
 
     body
@@ -32,7 +33,11 @@ export default createGlobalStyle`
 
     #root{
         display: grid;
-        grid-template-columns: 60px minmax(100px, 1400px);
+        grid-template-columns: min-content minmax(0, 1400px);
+
+        #divbranca{
+            width:0px;
+        }
 
         #cabecalho{
             font-size: 25px;

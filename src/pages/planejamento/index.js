@@ -46,7 +46,7 @@ class planejamento extends Component {
                 ItemMenu.ItemRequerimentosEnabled &&
                 !ItemMenu.ItemSolicitacoesEnabled &&
                 !ItemMenu.ItemFixEnabled &&
-                param == 1) ||
+                param == 2) ||
             (!ItemMenu.ItemLevantamentoEnabled &&
                 !ItemMenu.ItemRequerimentosEnabled &&
                 ItemMenu.ItemSolicitacoesEnabled &&
